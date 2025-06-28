@@ -1,0 +1,387 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Orbitron', 'Share Tech Mono', sans-serif;
+    background-color: #0c0c1e;
+    color: #e0e0e0;
+    overflow-y: auto; /* Permet le défilement de la page */
+    line-height: 1.6;
+}
+
+.container {
+    background-color: #1a1a38;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(0, 255, 255, 0.6),
+                0 0 80px rgba(173, 216, 230, 0.4);
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    animation: slideIn 1s ease-out forwards;
+    position: relative;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    color: #00ffff;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+h2 {
+    color: #9aff9a;
+    text-shadow: 0 0 10px rgba(154, 255, 154, 0.6);
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.6em;
+}
+
+/* Sections de l'application */
+.input-section, .list-section, .draw-section {
+    background-color: #1f1f45;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(154, 255, 154, 0.2);
+    box-shadow: inset 0 0 10px rgba(154, 255, 154, 0.2);
+}
+
+/* Champs de saisie */
+#nameInput {
+    width: calc(100% - 130px);
+    padding: 15px;
+    border: 2px solid #00ffff;
+    border-radius: 8px;
+    background-color: #0a0a1a;
+    color: #00ffff;
+    font-size: 1.1em;
+    font-family: 'Share Tech Mono', monospace;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    margin-right: 10px;
+}
+
+#nameInput::placeholder {
+    color: rgba(0, 255, 255, 0.6);
+}
+
+#nameInput:focus {
+    border-color: #9aff9a;
+    box-shadow: 0 0 15px rgba(154, 255, 154, 0.8);
+}
+
+/* Section d'ajout en masse */
+.bulk-input-section {
+    margin-top: 20px;
+    border-top: 1px dashed rgba(0, 255, 255, 0.2);
+    padding-top: 20px;
+}
+
+#bulkNameInput {
+    width: calc(100% - 30px);
+    height: 100px;
+    padding: 15px;
+    border: 2px solid #00ffff;
+    border-radius: 8px;
+    background-color: #0a0a1a;
+    color: #00ffff;
+    font-size: 1.1em;
+    font-family: 'Share Tech Mono', monospace;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    resize: vertical;
+    margin-bottom: 15px;
+}
+
+#bulkNameInput::placeholder {
+    color: rgba(0, 255, 255, 0.6);
+}
+
+#bulkNameInput:focus {
+    border-color: #9aff9a;
+    box-shadow: 0 0 15px rgba(154, 255, 154, 0.8);
+}
+
+
+/* Boutons néon */
+.neon-button {
+    background-color: #333366;
+    color: #e0e0e0;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease-out;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+}
+
+.neon-button:hover {
+    transform: translateY(-3px);
+}
+
+.neon-button:active {
+    transform: translateY(0);
+}
+
+/* Couleurs spécifiques des boutons */
+.neon-button.add, .neon-button.add-bulk {
+    background-color: #00bfff;
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.7);
+}
+.neon-button.add:hover, .neon-button.add-bulk:hover {
+    background-color: #33d9ff;
+    box-shadow: 0 0 20px rgba(51, 217, 255, 0.9);
+}
+
+.neon-button.clear {
+    background-color: #ff3366;
+    box-shadow: 0 0 10px rgba(255, 51, 102, 0.7);
+    margin-top: 20px;
+}
+.neon-button.clear:hover {
+    background-color: #ff6699;
+    box-shadow: 0 0 20px rgba(255, 102, 153, 0.9);
+}
+
+.neon-button.draw {
+    background-color: #9aff9a;
+    color: #1a1a38;
+    box-shadow: 0 0 15px rgba(154, 255, 154, 0.8),
+                0 0 30px rgba(154, 255, 154, 0.6);
+    font-size: 1.5em;
+    padding: 20px 40px;
+    margin-bottom: 25px;
+}
+.neon-button.draw:hover {
+    background-color: #b3ffb3;
+    box-shadow: 0 0 25px rgba(179, 255, 179, 1),
+                0 0 50px rgba(179, 255, 179, 0.8);
+}
+.neon-button.draw:disabled {
+    background-color: #666;
+    box-shadow: none;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Liste des noms */
+.neon-list {
+    list-style: none;
+    padding: 0;
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    border-radius: 5px;
+    background-color: #0a0a1a;
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.neon-list li {
+    padding: 10px 15px;
+    border-bottom: 1px dashed rgba(0, 255, 255, 0.1);
+    color: #00ffff;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.neon-list li:last-child {
+    border-bottom: none;
+}
+
+/* Bouton de suppression d'un nom */
+.remove-name-btn {
+    background-color: transparent;
+    border: none;
+    color: #ff3366;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.remove-name-btn:hover {
+    color: #ff6699;
+}
+
+
+/* Affichage du gagnant */
+.winner-display {
+    background-color: #0a0a1a;
+    color: #00ff00;
+    font-size: 2.2em;
+    font-weight: 700;
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 25px;
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8),
+                0 0 40px rgba(0, 255, 0, 0.6);
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+    min-height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease-in-out;
+}
+
+/* Effet d'animation de la "roue" de tirage */
+.winner-display.drawing {
+    font-size: 1.8em;
+    color: #00ffff;
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
+    border-color: #00ffff;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8),
+                0 0 30px rgba(0, 255, 255, 0.6);
+    animation: pulseGlow 1s infinite alternate;
+}
+
+@keyframes pulseGlow {
+    from { box-shadow: 0 0 15px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.6); }
+    to { box-shadow: 0 0 25px rgba(0, 255, 255, 1), 0 0 50px rgba(0, 255, 255, 0.8); }
+}
+
+/* Section des options (case à cocher) */
+.options-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px; /* Espace entre la checkbox et le label */
+    color: #e0e0e0; /* Couleur du texte du label */
+    font-size: 1em;
+}
+
+.options-section input[type="checkbox"] {
+    /* Style de la checkbox pour qu'elle corresponde au thème futuriste */
+    appearance: none; /* Cache la checkbox par défaut */
+    width: 20px;
+    height: 20px;
+    border: 2px solid #00ffff; /* Bordure cyan */
+    border-radius: 4px;
+    background-color: #0a0a1a;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+}
+
+.options-section input[type="checkbox"]:checked {
+    background-color: #00ff00; /* Vert quand coché */
+    border-color: #00ff00;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
+}
+
+.options-section input[type="checkbox"]:checked::after {
+    /* Le 'V' quand coché */
+    content: '\2713'; /* Symbole de coche Unicode */
+    display: block;
+    color: #0a0a1a; /* Couleur du V, sombre pour contraste */
+    font-size: 1.2em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+}
+
+
+/* Médias queries pour la responsivité */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    #nameInput {
+        width: calc(100% - 100px);
+        margin-right: 5px;
+        padding: 10px;
+        font-size: 1em;
+    }
+
+    .neon-button {
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
+
+    .neon-button.draw {
+        font-size: 1.2em;
+        padding: 15px 30px;
+    }
+
+    .winner-display {
+        font-size: 1.8em;
+        padding: 20px;
+    }
+
+    .bulk-input-section {
+        padding-top: 15px;
+    }
+
+    #bulkNameInput {
+        height: 80px;
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .options-section {
+        flex-direction: column; /* Empile sur les petits écrans */
+        gap: 5px;
+    }
+}
+
+@media (max-width: 400px) {
+    .input-section {
+        flex-direction: column;
+        display: flex;
+    }
+
+    #nameInput {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .neon-button.add {
+        width: 100%;
+    }
+
+    .bulk-input-section {
+        flex-direction: column;
+        display: flex;
+    }
+    #bulkNameInput {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .neon-button.add-bulk {
+        width: 100%;
+    }
+}

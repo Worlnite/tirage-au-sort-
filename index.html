@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tirage au Sort </title>
+    <link rel="stylesheet" href="tirage(css).css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="Gemini_Generated_Image_wzv7lgwzv7lgwzv7.png" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Système de Tirage au Sort Quantique</h1>
+
+        <div class="input-section">
+            <input type="text" id="nameInput" placeholder="Entrez un nom...">
+            <button id="addNameBtn" class="neon-button add">Ajouter Participant</button>
+
+            <div class="bulk-input-section">
+                <textarea id="bulkNameInput" placeholder="Collez plusieurs noms ici (un par ligne ou séparés par des virgules)..."></textarea>
+                <button id="addBulkNamesBtn" class="neon-button add-bulk">Ajouter en Masse</button>
+            </div>
+        </div>
+
+        <div class="list-section">
+            <h2>Participants (<span id="participantCount">0</span>)</h2>
+            <ul id="nameList" class="neon-list">
+                </ul>
+            <button id="clearListBtn" class="neon-button clear">Vider la Liste</button>
+        </div>
+
+        <div class="draw-section">
+            <div class="options-section">
+                <input type="checkbox" id="removeWinnerCheckbox">
+                <label for="removeWinnerCheckbox">Retirer le gagnant pour le prochain tour</label>
+            </div>
+            <button id="drawBtn" class="neon-button draw">Lancer le Tirage !</button>
+            <div id="winnerDisplay" class="winner-display">
+                Prêt pour le tirage...
+            </div>
+        </div>
+    </div>
+
+    <script src="tirage(js).js"></script>
+</body>
+</html>
